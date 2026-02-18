@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+    <div class="container">
+        <h1 class="display-4">Hi, I'm Gautham</h1>
+        <p class="lead">BTech CS Student | AI & Cloud Enthusiast</p>
+        <a href="#projects" class="btn btn-primary btn-lg">View My Work</a>
+        <a href="#contact" class="btn btn-outline-light btn-lg ms-2">Contact Me</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+    <div class="container">
+        <h2 class="text-center mb-5">About Me</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <!-- Placeholder image or upload one -->
+                <img src="https://via.placeholder.com/600x400" alt="About Me" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6">
+                <p class="lead">
+                    I am a Computer Science student passionate about building scalable web applications and exploring
+                    the frontiers of AI.
+                    With a strong foundation in Python and Java, I love converting ideas into reality through code.
+                </p>
+                <p>
+                    Currently learning Django and Cloud technologies. I also enjoy competitive gaming and anime in my
+                    free time.
+                </p>
+                <div class="mt-4">
+                    <h5>Interests</h5>
+                    <span class="badge bg-secondary me-2">AI / ML</span>
+                    <span class="badge bg-secondary me-2">Cybersecurity</span>
+                    <span class="badge bg-secondary me-2">Cloud Computing</span>
+                    <span class="badge bg-secondary me-2">Web Dev</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Skills</h2>
+        <div class="row">
+            {% for skill in skills %}
+            <div class="col-md-6 mb-4">
+                <h5>{{ skill.name }}</h5>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-width="{{ skill.proficiency }}"></div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>No skills added yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+    <div class="container">
+        <h2 class="text-center mb-5">Projects</h2>
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-md-4 mb-4">
+                <div class="card project-card h-100">
+                    {% if project.image %}
+                    <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                    {% else %}
+                    <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project Image">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text text-truncate">{{ project.description }}</p>
+                        <p class="card-text"><small class="text-muted">{{ project.tech_stack }}</small></p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        {% if project.github_link %}
+                        <a href="{{ project.github_link }}" class="btn btn-dark btn-sm" target="_blank"><i
+                                class="fab fa-github"></i> Code</a>
+                        {% endif %}
+                        {% if project.live_link %}
+                        <a href="{{ project.live_link }}" class="btn btn-primary btn-sm" target="_blank"><i
+                                class="fas fa-external-link-alt"></i> Live</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>No projects showcased yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Get In Touch</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="contact-form">
+                    <form action="{% url 'contact' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
