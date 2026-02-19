@@ -5,7 +5,8 @@
 <!-- Hero Section -->
 <section id="home" class="hero-section">
     <div class="container">
-        <h1 class="display-4">Hi, I'm Gautham</h1>
+        <h1 class="display-4">Hi, I'm {% if profile and profile.user.first_name %}{{ profile.user.first_name }}{% elif
+            profile %}{{ profile.user.username }}{% else %}Gautham{% endif %}</h1>
         <p class="lead">BTech CS Student | AI & Cloud Enthusiast</p>
         <a href="#projects" class="btn btn-primary btn-lg">View My Work</a>
         <a href="#contact" class="btn btn-outline-light btn-lg ms-2">Contact Me</a>
@@ -31,12 +32,45 @@
                     Currently learning Django and Cloud technologies. I also enjoy competitive gaming and anime in my
                     free time.
                 </p>
+
+                <!-- Education & Experience Timeline -->
+                <div class="timeline mt-4">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h5>Education</h5>
+                            <p class="mb-0"><strong>B.Tech Computer Science</strong></p>
+                            <p class="text-muted">Expected 2027</p>
+                            <p class="small">Relevant Coursework: Data Structures, Algorithms, DBMS, OS</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h5>Experience</h5>
+                            <p class="mb-0"><strong>Full Stack Web Developer Intern</strong></p>
+                            <p class="text-muted">Summer 2025</p>
+                            <p class="small">Built scalable web apps using Django and React.</p>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="mt-4">
                     <h5>Interests</h5>
                     <span class="badge bg-secondary me-2">AI / ML</span>
                     <span class="badge bg-secondary me-2">Cybersecurity</span>
                     <span class="badge bg-secondary me-2">Cloud Computing</span>
                     <span class="badge bg-secondary me-2">Web Dev</span>
+                </div>
+
+                <div class="mt-4">
+                    {% if profile and profile.resume %}
+                    <a href="{{ profile.resume.url }}" class="btn btn-primary" download><i
+                            class="fas fa-file-download me-2"></i>Download Resume</a>
+                    {% else %}
+                    <a href="#" class="btn btn-secondary disabled"><i class="fas fa-file-download me-2"></i>Resume Not
+                        Available</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
