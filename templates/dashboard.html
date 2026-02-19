@@ -33,7 +33,9 @@
     <div class="card mb-4 bg-dark text-white border-secondary">
         <div class="card-header border-secondary d-flex justify-content-between align-items-center">
             <h4 class="mb-0">Skills</h4>
+            {% if user.is_superuser %}
             <a href="{% url 'add_skill' %}" class="btn btn-success btn-sm"><i class="fas fa-plus"></i> Add Skill</a>
+            {% endif %}
         </div>
         <div class="card-body">
             {% if skills %}
@@ -52,10 +54,12 @@
                             <td>{{ skill.name }}</td>
                             <td>{{ skill.proficiency }}%</td>
                             <td>
+                                {% if user.is_superuser %}
                                 <a href="{% url 'edit_skill' skill.pk %}" class="btn btn-warning btn-sm me-1"><i
                                         class="fas fa-edit"></i></a>
                                 <a href="{% url 'delete_skill' skill.pk %}" class="btn btn-danger btn-sm"><i
                                         class="fas fa-trash"></i></a>
+                                {% endif %}
                             </td>
                         </tr>
                         {% endfor %}
@@ -72,7 +76,9 @@
     <div class="card mb-4 bg-dark text-white border-secondary">
         <div class="card-header border-secondary d-flex justify-content-between align-items-center">
             <h4 class="mb-0">Projects</h4>
+            {% if user.is_superuser %}
             <a href="{% url 'add_project' %}" class="btn btn-success btn-sm"><i class="fas fa-plus"></i> Add Project</a>
+            {% endif %}
         </div>
         <div class="card-body">
             {% if projects %}
@@ -91,10 +97,12 @@
                             <td>{{ project.title }}</td>
                             <td>{{ project.created_at|date:"M d, Y" }}</td>
                             <td>
+                                {% if user.is_superuser %}
                                 <a href="{% url 'edit_project' project.pk %}" class="btn btn-warning btn-sm me-1"><i
                                         class="fas fa-edit"></i></a>
                                 <a href="{% url 'delete_project' project.pk %}" class="btn btn-danger btn-sm"><i
                                         class="fas fa-trash"></i></a>
+                                {% endif %}
                             </td>
                         </tr>
                         {% endfor %}

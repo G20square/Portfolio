@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import login
 from .models import Project, Skill, ContactMessage
 from .forms import UserRegistrationForm
@@ -41,14 +41,16 @@ def contact_submit(request):
             # Send Email to Admin
             subject_admin = f"New Contact Message from {name}"
             message_admin = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
-            send_mail(
+            
+            from django.core.mail import EmailMessage
+            email_admin = EmailMessage(
                 subject_admin,
                 message_admin,
                 settings.EMAIL_HOST_USER if hasattr(settings, 'EMAIL_HOST_USER') else 'noreply@example.com',
-                ['gauthamg250204@gmail.com'], # Updated to user provided email
-                fail_silently=True,
+                ['gauthamg250204@gmail.com'],
                 reply_to=[email],
             )
+            email_admin.send(fail_silently=True)
             
             # Send Confirmation to User
             subject_user = "Message Received - Gautham's Portfolio"
@@ -99,6 +101,7 @@ def dashboard(request):
     })
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def add_project(request):
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES)
@@ -111,6 +114,7 @@ def add_project(request):
     return render(request, 'portfolio/form.html', {'form': form, 'title': 'Add Project'})
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def edit_project(request, pk):
     project = get_object_or_404(Project, pk=pk)
     if request.method == 'POST':
@@ -124,6 +128,7 @@ def edit_project(request, pk):
     return render(request, 'portfolio/form.html', {'form': form, 'title': 'Edit Project'})
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def delete_project(request, pk):
     project = get_object_or_404(Project, pk=pk)
     if request.method == 'POST':
@@ -151,6 +156,7 @@ def edit_profile(request):
     return render(request, 'portfolio/form.html', {'form': form, 'title': 'Edit Profile'})
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def add_skill(request):
     if request.method == 'POST':
         form = SkillForm(request.POST)
@@ -163,6 +169,7 @@ def add_skill(request):
     return render(request, 'portfolio/form.html', {'form': form, 'title': 'Add Skill'})
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def edit_skill(request, pk):
     skill = get_object_or_404(Skill, pk=pk)
     if request.method == 'POST':
@@ -176,6 +183,7 @@ def edit_skill(request, pk):
     return render(request, 'portfolio/form.html', {'form': form, 'title': 'Edit Skill'})
 
 @login_required
+@user_passes_test(lambda u: u.is_superuser)
 def delete_skill(request, pk):
     skill = get_object_or_404(Skill, pk=pk)
     if request.method == 'POST':

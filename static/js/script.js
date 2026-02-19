@@ -12,19 +12,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Skill Bar Animation on Scroll
-    const skillSection = document.getElementById('skills');
-    if (skillSection) {
+    // Skill Bar Animation on Scroll
+    const skillCards = document.querySelectorAll('.skill-card');
+    if (skillCards.length > 0) {
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    document.querySelectorAll('.skill-progress').forEach(bar => {
-                        const width = bar.getAttribute('data-width');
-                        bar.style.width = width + '%';
-                    });
+                    // Staggered animation for cards
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                        const progressBar = entry.target.querySelector('.skill-progress');
+                        if (progressBar) {
+                            const width = progressBar.getAttribute('data-width');
+                            progressBar.style.width = width + '%';
+                        }
+                    }, index * 100); // 100ms delay between each card
+
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.5 });
-        observer.observe(skillSection);
+        }, { threshold: 0.2 });
+
+        skillCards.forEach(card => observer.observe(card));
     }
 
     // Theme Toggle Logic
