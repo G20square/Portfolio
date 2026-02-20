@@ -1,34 +1,28 @@
-/* Custom Styles - Modern Slate Theme */
+/* Custom Styles - Bright/Light Theme */
 :root {
-    /* Extracted Palette */
-    --primary-color: #ced2d9;
-    /* Silver/Light Gray - Main Text/Highlights */
-    --secondary-color: #9ca2a8;
-    /* Medium Gray - Muted Text/Borders */
-    --accent-color: #56605c;
-    /* Slate - Interactive Elements */
-    --bg-dark: #101416;
-    /* Deep Dark - Main Background */
-    --bg-panel: #232927;
-    /* Dark Slate Greenish - Cards/Sections */
-    --text-color: #f0f0f0;
-    /* Off-White - Body Text */
+    /* Extracted Palette - Bright/Light Theme */
+    --primary-color: #4f46e5;
+    /* Indigo - Vibrant Primary */
+    --secondary-color: #6c757d;
+    /* Gray - Muted Text */
+    --accent-color: #818cf8;
+    /* Light Indigo */
+
+    --bg-dark: #f8f9fa;
+    /* Light Gray - Main Background */
+    --bg-panel: #ffffff;
+    /* White - Cards/Sections */
+
+    --text-color: #212529;
+    /* Dark - Body Text */
 
     /* Functional Colors */
-    --link-color: #ced2d9;
-    --link-hover: #ffffff;
-    --border-color: #2c353b;
+    --link-color: #4f46e5;
+    --link-hover: #3730a3;
+    --border-color: #dee2e6;
 
     --font-heading: 'Inter', sans-serif;
     --font-body: 'Inter', sans-serif;
-}
-
-[data-bs-theme="dark"] {
-    --primary-color: #ced2d9;
-    --secondary-color: #56605c;
-    --section-bg: #101416;
-    --card-bg: #232927;
-    --text-color: #f0f0f0;
 }
 
 body {
@@ -56,7 +50,7 @@ section {
 
 /* Navbar */
 .navbar {
-    background-color: rgba(16, 20, 22, 0.95) !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
     border-bottom: 1px solid var(--border-color);
     backdrop-filter: blur(10px);
 }
@@ -84,7 +78,7 @@ section {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(rgba(16, 20, 22, 0.7), rgba(16, 20, 22, 0.4)), url('../img/theme-bg.jpg');
+    background: linear-gradient(rgba(248, 249, 250, 0.7), rgba(248, 249, 250, 0.4)), url('../img/theme-bg.jpg');
     background-size: cover;
     background-position: center;
     color: var(--text-color);
@@ -102,7 +96,7 @@ section {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 20px;
-    color: #ffffff;
+    color: var(--primary-color);
     letter-spacing: -2px;
 }
 
@@ -123,16 +117,17 @@ section {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .skill-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     border-color: var(--primary-color);
 }
 
 .skill-card .progress {
-    background-color: var(--bg-dark);
+    background-color: #e9ecef;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -165,10 +160,17 @@ section {
     transform: scale(1.2) rotate(5deg);
 }
 
+.skill-card .card-title {
+    color: var(--text-color);
+    font-weight: 800;
+    font-size: 1.3rem;
+    margin-top: 10px;
+}
+
 .btn-primary {
     background-color: var(--primary-color);
     border: 1px solid var(--primary-color);
-    color: var(--bg-dark);
+    color: #ffffff;
     font-family: var(--font-heading);
     font-weight: 600;
     padding: 10px 30px;
@@ -177,9 +179,9 @@ section {
 }
 
 .btn-primary:hover {
-    background-color: #ffffff;
-    border-color: #ffffff;
-    color: var(--bg-dark);
+    background-color: var(--link-hover);
+    border-color: var(--link-hover);
+    color: #ffffff;
     transform: translateY(-1px);
 }
 
@@ -192,7 +194,7 @@ section {
 .btn-outline-light:hover {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
-    color: var(--bg-dark);
+    color: #ffffff;
 }
 
 /* Project Cards */
@@ -203,11 +205,12 @@ section {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     height: 100%;
     overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .project-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
     border-color: var(--secondary-color);
 }
 
@@ -230,10 +233,11 @@ section {
     padding: 40px;
     border-radius: 8px;
     border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .form-control {
-    background-color: var(--bg-dark);
+    background-color: #ffffff;
     border: 1px solid var(--border-color);
     color: var(--text-color);
     border-radius: 4px;
@@ -241,10 +245,10 @@ section {
 }
 
 .form-control:focus {
-    background-color: var(--bg-dark);
+    background-color: #ffffff;
     border-color: var(--primary-color);
     color: var(--text-color);
-    box-shadow: 0 0 0 2px rgba(206, 210, 217, 0.2);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
 }
 
 /* Timeline */
@@ -264,7 +268,7 @@ section {
     top: 5px;
     width: 14px;
     height: 14px;
-    background-color: var(--bg-dark);
+    background-color: var(--bg-panel);
     border: 2px solid var(--primary-color);
     border-radius: 50%;
 }
@@ -274,6 +278,7 @@ section {
     border: 1px solid var(--border-color);
     padding: 20px;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .timeline-content h5 {
@@ -287,7 +292,7 @@ section {
 
 /* Footer */
 footer {
-    background-color: var(--bg-dark) !important;
+    background-color: #f1f3f5 !important;
     border-top: 1px solid var(--border-color);
     padding: 60px 0;
 }
@@ -332,4 +337,30 @@ footer .social-links a:hover {
     border-bottom: 1px solid var(--border-color) !important;
     color: var(--primary-color) !important;
     font-weight: 600;
+}
+
+.skill-dashboard-card {
+    transition: transform 0.2s;
+}
+
+.skill-dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced Skill Card Visibility */
+.skill-card {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-panel);
+}
+
+/* About Me Image Styling */
+.about-img {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-img:hover {
+    transform: scale(1.02) rotate(1deg);
 }

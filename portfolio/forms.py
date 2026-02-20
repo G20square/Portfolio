@@ -34,11 +34,10 @@ from .models import Profile
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['bio', 'profile_pic', 'resume']
+        fields = ['bio', 'profile_pic']
         widgets = {
             'bio': forms.Textarea(attrs={'class': 'form-control', 'rows': 4}),
             'profile_pic': forms.ClearableFileInput(attrs={'class': 'form-control'}),
-            'resume': forms.ClearableFileInput(attrs={'class': 'form-control'}),
         }
 
 from .models import Skill

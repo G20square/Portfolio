@@ -7,7 +7,7 @@
     <div class="container">
         <h1 class="display-4">Hi, I'm {% if profile and profile.user.first_name %}{{ profile.user.first_name }}{% elif
             profile %}{{ profile.user.username }}{% else %}Gautham{% endif %}</h1>
-        <p class="lead">BTech CS Student | AI & Cloud Enthusiast</p>
+        <p class="lead">BTech CS Student | AI & Cybersecurity Aspirant</p>
         <a href="#projects" class="btn btn-primary btn-lg">View My Work</a>
         <a href="#contact" class="btn btn-outline-light btn-lg ms-2">Contact Me</a>
     </div>
@@ -20,7 +20,7 @@
         <div class="row align-items-center">
             <div class="col-md-6">
                 <!-- Placeholder image or upload one -->
-                <img src="https://via.placeholder.com/600x400" alt="About Me" class="img-fluid rounded shadow">
+                <img src="{% static 'img/about-me.jpeg' %}" alt="About Me" class="img-fluid rounded about-img">
             </div>
             <div class="col-md-6">
                 <p class="lead">
@@ -78,7 +78,7 @@
 </section>
 
 <!-- Skills Section -->
-<section id="skills" class="bg-light">
+<section id="skills">
     <div class="container">
         <h2 class="text-center mb-5">Skills</h2>
         <div class="row">
@@ -149,7 +149,7 @@
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="bg-light">
+<section id="contact">
     <div class="container">
         <h2 class="text-center mb-5">Get In Touch</h2>
         <div class="row justify-content-center">

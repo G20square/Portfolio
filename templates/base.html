@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -13,13 +13,9 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
+    <!-- Custom CSS -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=3">
-    <script>
-        // Check for saved theme
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-bs-theme', savedTheme);
-    </script>
 </head>
 
 <body>
@@ -32,11 +28,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <button class="btn btn-link nav-link" id="theme-toggle">
-                            <i class="fas fa-moon"></i>
-                        </button>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'home' %}">Home</a>
                     </li>
@@ -93,12 +85,12 @@
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4 mt-5">
         <div class="container">
-            <p>&copy; {% now "Y" %} Gautham. All rights reserved.</p>
             <div class="social-links">
                 <a href="https://github.com/G20square" class="text-white me-3" target="_blank"><i
                         class="fab fa-github"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-white"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/gautham--g?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                    class="text-white me-3" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:gauthamg250204@gmail.com" class="text-white"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </footer>
