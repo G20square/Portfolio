@@ -1,22 +1,8 @@
-<<<<<<< HEAD
 Django>=5.0
 django-environ>=0.11
 gunicorn>=21.0
-
 whitenoise>=6.0
-
 djangorestframework
 django-cors-headers
 psycopg2-binary
 Pillow
-=======
-Django>=5.0
-django-environ>=0.11
-gunicorn>=21.0
-
-whitenoise>=6.0
-
-djangorestframework
-django-cors-headers
-psycopg2-binary
->>>>>>> 0e6cd1a (Updated)
