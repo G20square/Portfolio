@@ -1,28 +1,36 @@
-/* Custom Styles - Bright/Light Theme */
+/* Custom Styles - Modern Slate Theme */
 :root {
-    /* Extracted Palette - Bright/Light Theme */
-    --primary-color: #4f46e5;
-    /* Indigo - Vibrant Primary */
-    --secondary-color: #6c757d;
-    /* Gray - Muted Text */
-    --accent-color: #818cf8;
-    /* Light Indigo */
+    /* Extracted Palette - Dark Theme */
+    --primary-color: #ced2d9;
+    /* Silver/Light Gray - Main Text/Highlights */
+    --secondary-color: #9ca2a8;
+    /* Medium Gray - Muted Text/Borders */
+    --accent-color: #56605c;
+    /* Slate - Interactive Elements */
 
-    --bg-dark: #f8f9fa;
-    /* Light Gray - Main Background */
-    --bg-panel: #ffffff;
-    /* White - Cards/Sections */
+    --bg-dark: #101416;
+    /* Deep Dark - Main Background */
+    --bg-panel: #232927;
+    /* Dark Slate Greenish - Cards/Sections */
 
-    --text-color: #212529;
-    /* Dark - Body Text */
+    --text-color: #f0f0f0;
+    /* Off-White - Body Text */
 
     /* Functional Colors */
-    --link-color: #4f46e5;
-    --link-hover: #3730a3;
-    --border-color: #dee2e6;
+    --link-color: #ced2d9;
+    --link-hover: #ffffff;
+    --border-color: #2c353b;
 
     --font-heading: 'Inter', sans-serif;
     --font-body: 'Inter', sans-serif;
+}
+
+[data-bs-theme="dark"] {
+    --primary-color: #ced2d9;
+    --secondary-color: #56605c;
+    --section-bg: #101416;
+    --card-bg: #232927;
+    --text-color: #f0f0f0;
 }
 
 body {
@@ -50,7 +58,7 @@ section {
 
 /* Navbar */
 .navbar {
-    background-color: rgba(255, 255, 255, 0.95) !important;
+    background-color: rgba(16, 20, 22, 0.95) !important;
     border-bottom: 1px solid var(--border-color);
     backdrop-filter: blur(10px);
 }
@@ -78,7 +86,7 @@ section {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(rgba(248, 249, 250, 0.7), rgba(248, 249, 250, 0.4)), url('../img/theme-bg.jpg');
+    background: linear-gradient(rgba(16, 20, 22, 0.7), rgba(16, 20, 22, 0.4)), url('../img/theme-bg.jpg');
     background-size: cover;
     background-position: center;
     color: var(--text-color);
@@ -96,7 +104,7 @@ section {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 20px;
-    color: var(--primary-color);
+    color: #ffffff;
     letter-spacing: -2px;
 }
 
@@ -117,17 +125,16 @@ section {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .skill-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     border-color: var(--primary-color);
 }
 
 .skill-card .progress {
-    background-color: #e9ecef;
+    background-color: var(--bg-dark);
     border-radius: 20px;
     overflow: hidden;
 }
@@ -161,8 +168,8 @@ section {
 }
 
 .skill-card .card-title {
-    color: var(--text-color);
-    font-weight: 800;
+    color: #ffffff !important;
+    font-weight: 700;
     font-size: 1.3rem;
     margin-top: 10px;
 }
@@ -170,7 +177,7 @@ section {
 .btn-primary {
     background-color: var(--primary-color);
     border: 1px solid var(--primary-color);
-    color: #ffffff;
+    color: var(--bg-dark);
     font-family: var(--font-heading);
     font-weight: 600;
     padding: 10px 30px;
@@ -179,9 +186,9 @@ section {
 }
 
 .btn-primary:hover {
-    background-color: var(--link-hover);
-    border-color: var(--link-hover);
-    color: #ffffff;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: var(--bg-dark);
     transform: translateY(-1px);
 }
 
@@ -194,7 +201,7 @@ section {
 .btn-outline-light:hover {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
-    color: #ffffff;
+    color: var(--bg-dark);
 }
 
 /* Project Cards */
@@ -205,12 +212,11 @@ section {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     height: 100%;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .project-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     border-color: var(--secondary-color);
 }
 
@@ -233,11 +239,10 @@ section {
     padding: 40px;
     border-radius: 8px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .form-control {
-    background-color: #ffffff;
+    background-color: var(--bg-dark);
     border: 1px solid var(--border-color);
     color: var(--text-color);
     border-radius: 4px;
@@ -245,10 +250,10 @@ section {
 }
 
 .form-control:focus {
-    background-color: #ffffff;
+    background-color: var(--bg-dark);
     border-color: var(--primary-color);
     color: var(--text-color);
-    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+    box-shadow: 0 0 0 2px rgba(206, 210, 217, 0.2);
 }
 
 /* Timeline */
@@ -268,7 +273,7 @@ section {
     top: 5px;
     width: 14px;
     height: 14px;
-    background-color: var(--bg-panel);
+    background-color: var(--bg-dark);
     border: 2px solid var(--primary-color);
     border-radius: 50%;
 }
@@ -278,7 +283,6 @@ section {
     border: 1px solid var(--border-color);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .timeline-content h5 {
@@ -292,7 +296,7 @@ section {
 
 /* Footer */
 footer {
-    background-color: #f1f3f5 !important;
+    background-color: var(--bg-dark) !important;
     border-top: 1px solid var(--border-color);
     padding: 60px 0;
 }
@@ -345,7 +349,12 @@ footer .social-links a:hover {
 
 .skill-dashboard-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.skill-dashboard-card .card-title {
+    color: #ffffff !important;
+    font-weight: 700;
 }
 
 /* Enhanced Skill Card Visibility */
@@ -357,7 +366,7 @@ footer .social-links a:hover {
 /* About Me Image Styling */
 .about-img {
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
 }
 

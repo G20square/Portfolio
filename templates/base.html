@@ -15,7 +15,7 @@
     <!-- Custom CSS -->
     <!-- Custom CSS -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=3">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6">
 </head>
 
 <body>
@@ -39,7 +39,8 @@
                         <a class="nav-link" href="{% url 'home' %}#projects">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                        <a class="nav-link"
+                            href="{% if request.path == '/' %}#contact{% else %}{% url 'home' %}#contact{% endif %}">Contact</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
