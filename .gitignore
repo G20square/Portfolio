@@ -20,5 +20,5 @@ env/
 
 # Static/Media
 staticfiles/
-media/
+
 !media/.gitkeep
