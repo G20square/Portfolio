@@ -1,13 +1,21 @@
 services:
   - type: web
     name: django-portfolio
-    env: python
-    buildCommand: "./build.sh"
-    startCommand: "gunicorn config.wsgi:application"
+    env: docker
+    dockerContext: .
+    dockerfilePath: Dockerfile
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.0
+      - key: DATABASE_URL
+        fromDatabase:
+          name: portfolio-db
+          property: connectionString
       - key: SECRET_KEY
         generateValue: true
-      - key: WEB_CONCURRENCY
-        value: 4
+      - key: ALLOWED_HOSTS
+        value: .onrender.com
+      - key: DEBUG
+        value: "false"
+
+databases:
+  - name: portfolio-db
+    plan: free
