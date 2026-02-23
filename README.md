@@ -69,3 +69,6 @@ templates/: HTML templates for the frontend and dashboard.
 static/: CSS, JavaScript, and image assets.
 media/: User-uploaded content (projects images, resumes).
 <img width="1899" height="912" alt="Screenshot 2026-02-23 101819" src="https://github.com/user-attachments/assets/60222f58-08f1-495e-8628-8a3c7faaef75" />
+<img width="1896" height="914" alt="Screenshot 2026-02-23 101832" src="https://github.com/user-attachments/assets/aee987ea-4f92-4f8b-a6ef-d3103f3f256e" />
+<img width="1894" height="907" alt="Screenshot 2026-02-23 101842" src="https://github.com/user-attachments/assets/3e9c1464-7ade-483d-8bf8-fca397f285c1" />
+<img width="1896" height="904" alt="Screenshot 2026-02-23 101901" src="https://github.com/user-attachments/assets/f019efca-71e2-4547-8357-c9ac59c169a5" />
