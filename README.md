@@ -25,7 +25,7 @@ A modern, responsive personal portfolio website built with Django 5.0. This proj
 ### Local Development
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/portfolio.git
+   git clone https://github.com/G20square/Portfolio.git
    cd portfolio
 Create and activate a virtual environment:
 
