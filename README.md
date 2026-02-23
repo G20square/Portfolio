@@ -68,3 +68,4 @@ config/: Project-wide settings and configuration.
 templates/: HTML templates for the frontend and dashboard.
 static/: CSS, JavaScript, and image assets.
 media/: User-uploaded content (projects images, resumes).
+<img width="1899" height="912" alt="Screenshot 2026-02-23 101819" src="https://github.com/user-attachments/assets/60222f58-08f1-495e-8628-8a3c7faaef75" />
