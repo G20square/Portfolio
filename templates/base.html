@@ -53,13 +53,6 @@
                                 style="border: none; background: none;">Logout</button>
                         </form>
                     </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}">Register</a>
-                    </li>
                     {% endif %}
                 </ul>
             </div>
@@ -92,6 +85,9 @@
                 <a href="https://www.linkedin.com/in/gautham--g?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                     class="text-white me-3" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="mailto:gauthamg250204@gmail.com" class="text-white"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="mt-4">
+                <a href="{% url 'login' %}" class="text-white text-decoration-none" style="opacity: 0.5; font-size: 0.8rem;">Admin Login</a>
             </div>
         </div>
     </footer>
